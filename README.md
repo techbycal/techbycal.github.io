@@ -1,1 +1,0 @@
-# techbycal.github.io
