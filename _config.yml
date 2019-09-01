@@ -1,9 +1,0 @@
-#General Jekyll Config
-highlighter: rogue
-name: Ernesto 'Cal' Miguel
-description: test
-url: "https://techbycal.github.io/"
-lxi: false
-
-
-remote_theme: voyager
