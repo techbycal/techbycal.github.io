@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeepTech Studio</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+    
+    <div id="cursor-trail"></div>
+
+    <header>
+        <div class="logo">DEEPTECH</div>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <button id="theme-toggle" aria-label="Toggle theme">🌓</button>
+    </header>
+
+    <main>
+        <div id="rocket-background"></div>
+        <section id="hero" class="hero">
+            <div class="hero-content">
+                <h1 class="parallax" data-speed="0.1">DeepTech Studio</h1>
+                <p class="parallax" data-speed="0.2">Innovating at the intersection of technology and imagination</p>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <h2 class="parallax" data-speed="0.1">About Us</h2>
+            <p class="parallax" data-speed="0.2">We're a cutting-edge deep tech startup studio, reimagining the future through advanced technology and creative solutions. Our team of visionaries and innovators work tirelessly to bring groundbreaking ideas to life in rockets, AI, robotics, and biotech.</p>
+        </section>
+
+        <section id="services" class="services">
+            <h2>Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Rocket Engineering</h3>
+                    <p>Pioneering the next generation of space exploration and transportation technologies.</p>
+                </div>
+                <div class="service-card">
+                    <h3>AI & Machine Learning</h3>
+                    <p>Harnessing the power of artificial intelligence to solve complex problems and drive innovation.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Robotics</h3>
+                    <p>Developing advanced robotic systems for industrial, medical, and consumer applications.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Biotechnology</h3>
+                    <p>Merging biology and technology to create sustainable solutions for global challenges.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="projects">
+            <h2>Our Projects</h2>
+            <div class="project-grid">
+                <div class="project-card" data-project="nexus">
+                    <h3>Project Nexus</h3>
+                    <p>An AI-driven ecosystem for predictive healthcare and personalized medicine.</p>
+                    <button class="expand-btn">Learn More</button>
+                </div>
+                <div class="project-card" data-project="stardrive">
+                    <h3>StarDrive</h3>
+                    <p>Next-generation rocket propulsion system for interplanetary travel.</p>
+                    <button class="expand-btn">Learn More</button>
+                </div>
+                <div class="project-card" data-project="roboassist">
+                    <h3>RoboAssist</h3>
+                    <p>Advanced robotic assistants for elderly care and hospital environments.</p>
+                    <button class="expand-btn">Learn More</button>
+                </div>
+                <div class="project-card" data-project="biosynth">
+                    <h3>BioSynth</h3>
+                    <p>Synthesizing new materials using bio-engineered microorganisms for sustainable manufacturing.</p>
+                    <button class="expand-btn">Learn More</button>
+                </div>
+                <div class="project-card" data-project="quantumleap">
+                    <h3>QuantumLeap</h3>
+                    <p>Advancing quantum encryption for unbreakable data security in the digital age.</p>
+                    <button class="expand-btn">Learn More</button>
+                </div>
+                <div class="project-card" data-project="ecofuel">
+                    <h3>EcoFuel</h3>
+                    <p>Developing clean, bio-based rocket fuels for sustainable space exploration.</p>
+                    <button class="expand-btn">Learn More</button>
+                </div>
+            </div>
+        </section>
+
+        <div id="project-details" class="project-details">
+            <div class="project-details-content">
+                <button class="close-btn">&times;</button>
+                <h3 id="detail-title"></h3>
+                <p id="detail-description"></p>
+                <img id="detail-image" src="" alt="Project Image">
+            </div>
+        </div>
+
+        <section id="contact" class="contact">
+            <h2 class="parallax" data-speed="0.1">Get in Touch</h2>
+            <p class="parallax" data-speed="0.2">Ready to embark on a journey of innovation? Let's connect and explore the possibilities together.</p>
+            <a href="mailto:info@deeptechstudio.com" class="cta-button parallax" data-speed="0.3">Contact Us</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 DeepTech Studio. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
