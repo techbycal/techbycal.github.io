@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 
 :root {
     --primary-color: #000000;
@@ -8,6 +8,13 @@
     --background-color: #000000;
     --gradient-color: linear-gradient(45deg, #1a1a1a, #2c2c2c);
     --card-bg-color: rgba(51, 51, 51, 0.8);
+    --nebula-color-1: rgba(255, 255, 255, 0.25);
+    --nebula-color-2: rgba(255, 255, 255, 0.35);
+    --nebula-color-3: rgba(255, 255, 255, 0.45);
+    --nebula-color-4: rgba(255, 255, 255, 0.55);
+    --nebula-color-5: rgba(255, 255, 255, 0.65);
+    --nebula-color-6: rgba(255, 255, 255, 0.75);
+    --toggle-bg-color: #ffffff;
 }
 
 .light-theme {
@@ -18,6 +25,15 @@
     --background-color: #ffffff;
     --gradient-color: linear-gradient(45deg, #f0f0f0, #e0e0e0);
     --card-bg-color: rgba(224, 224, 224, 0.8);
+    --toggle-bg-color: #000000;
+}
+
+.light-theme .hero h1,
+.light-theme .hero p {
+    background: radial-gradient(circle at center, #333 0%, #888 80%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 * {
@@ -27,22 +43,23 @@
 }
 
 body, html {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Space Grotesk', 'Inter', sans-serif;
     background-color: var(--background-color);
     color: var(--text-color);
     line-height: 1.6;
-    overflow-x: hidden;
+    overflow: hidden;
+    height: 100%;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-#rocket-background {
+#rocket-background { /* container for Three.js rocket */
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     z-index: 0;
-    opacity: 0.2;
+    opacity: 0.9;
 }
 
 #cursor-trail {
@@ -72,18 +89,18 @@ header {
     justify-content: space-between;
     align-items: center;
     z-index: 1000;
-    transition: background-color 0.3s ease;
+    background-color: transparent;
 }
 
 header.scrolled {
-    background-color: var(--card-bg-color);
-    backdrop-filter: blur(10px);
+    background-color: transparent;
 }
 
 .logo {
-    font-weight: 900;
+    font-weight: 700;
     font-size: 1.5rem;
     letter-spacing: 2px;
+    font-family: 'Space Grotesk', sans-serif;
 }
 
 nav ul {
@@ -119,51 +136,78 @@ nav ul li a:hover::after {
 }
 
 #theme-toggle {
-    background: none;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
     border: none;
-    font-size: 1.5rem;
+    background: var(--toggle-bg-color);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.4), inset 2px 2px 4px rgba(255,255,255,0.25), inset -2px -2px 4px rgba(0,0,0,0.25);
     cursor: pointer;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 
 
 #theme-toggle:hover {
-    transform: scale(1.1);
+    transform: scale(1.1) translateY(-2px);
 }
 
 .hero {
     height: 100vh;
+    width: 100vw;
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
+    position: fixed;
+    left: 0;
+    top: 0;
     overflow: hidden;
+    padding: 0;
 }
 
 .hero-content {
-    text-align: left;
+    text-align: center;
     max-width: 800px;
     padding: 0 5%;
-    z-index: 1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
 }
 
 .hero h1 {
-    font-size: 4rem;
-    font-weight: 900;
+    font-size: 4.5rem;
+    font-weight: 700;
     line-height: 1.2;
     margin-bottom: 20px;
     transform: translateY(50px);
     opacity: 0;
     animation: fadeInUp 1s forwards;
+    font-family: 'Space Grotesk', sans-serif;
+    letter-spacing: -0.03em;
+    color: var(--text-color); /* Fallback color */
+    background: radial-gradient(circle at center, #ffffff 0%, #cfcfcf 60%, #8a8a8a 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .hero p {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
+    font-size: 1.4rem;
+    margin-bottom: 0;
     transform: translateY(50px);
     opacity: 0;
     animation: fadeInUp 1s 0.3s forwards;
+    letter-spacing: 0.02em;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--text-color); /* Fallback */
+    background: radial-gradient(circle at center, #ffffff 0%, #cfcfcf 80%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 @keyframes fadeInUp {
@@ -174,14 +218,20 @@ nav ul li a:hover::after {
 }
 
 section {
-    padding: 100px 5%;
+    padding: 0;
     position: relative;
+}
+
+.hidden {
+    display: none;
 }
 
 h2 {
     font-size: 3rem;
     font-weight: 700;
     margin-bottom: 30px;
+    font-family: 'Space Grotesk', sans-serif;
+    letter-spacing: -0.02em;
 }
 
 .project-grid, .services-grid {
@@ -190,31 +240,33 @@ h2 {
     gap: 30px;
 }
 
-.project-card, .service-card {
+.project-card {
     background: var(--card-bg-color);
     padding: 30px;
-    border-radius: 10px;
+    border-radius: 16px;
     transition: all 0.3s ease;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     cursor: pointer;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.project-card:hover, .service-card:hover {
+.project-card:hover {
     transform: translateY(-10px) scale(1.05);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
-.project-card.clicked, .service-card.clicked {
+.project-card.clicked {
     transform: scale(0.95);
     transition: transform 0.1s ease;
 }
 
-.project-card h3, .service-card h3 {
+.project-card h3 {
     font-size: 1.5rem;
     margin-bottom: 15px;
 }
 
-.project-card p, .service-card p {
+.project-card p {
     margin-bottom: 20px;
 }
 
@@ -305,10 +357,34 @@ h2 {
     color: var(--background-color);
 }
 
-footer {
-    text-align: center;
-    padding: 20px;
+/* link inside project details */
+.detail-link {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 26px;
     background-color: var(--accent-color);
+    color: var(--text-color);
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.detail-link:hover {
+    background-color: var(--text-color);
+    color: var(--background-color);
+    transform: translateY(-2px);
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    background-color: transparent;
+    font-size: 0.8rem;
+    opacity: 0.7;
 }
 
 @media screen and (max-width: 768px) {
@@ -338,7 +414,120 @@ footer {
         font-size: 2.5rem;
     }
 
-    .project-grid, .services-grid {
+    .project-grid,
+    .services-grid {
         grid-template-columns: 1fr;
     }
+}
+
+/* Nebula Cluster Buttons Styles */
+#cone-container {
+    position: absolute;
+    top: 8vh;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.nebula-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.nebula-button {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    overflow: hidden;
+    box-shadow: 0 0 20px 8px rgba(255, 255, 255, 0.15);
+    transition: all 0.3s ease;
+    pointer-events: auto;
+    z-index: 10;
+    opacity: 0.8;
+    border: none;
+    background: radial-gradient(circle at center, currentColor 0%, transparent 70%);
+}
+
+.nebula-button::before {
+    content: '';
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    width: 120%;
+    height: 120%;
+    border-radius: 50%;
+    filter: blur(15px);
+    background: inherit;
+    z-index: -1;
+    opacity: 0.7;
+}
+
+.nebula-button:hover {
+    transform: scale(1.1);
+    opacity: 1;
+}
+
+.nebula-button span {
+    font-weight: 600;
+    display: inline-block;
+    max-width: 70%;
+    white-space: normal;
+    word-wrap: break-word;
+    text-align: center;
+    line-height: 1.1;
+    color: white;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.nebula-button:hover span {
+    opacity: 1;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 20px currentColor;
+    }
+
+    100% {
+        box-shadow: 0 0 40px currentColor;
+    }
+}
+
+.nebula-1 {
+    color: var(--nebula-color-1);
+}
+
+.nebula-2 {
+    color: var(--nebula-color-2);
+}
+
+.nebula-3 {
+    color: var(--nebula-color-3);
+}
+
+.nebula-4 {
+    color: var(--nebula-color-4);
+}
+
+.nebula-5 {
+    color: var(--nebula-color-5);
+}
+
+.nebula-6 {
+    color: var(--nebula-color-6);
 }

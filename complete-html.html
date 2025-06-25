@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vanta Black Labs</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+    
+    <div id="cursor-trail"></div>
+
+    <header>
+        <div class="logo">VBL</div>
+        <button id="theme-toggle" aria-label="Toggle theme">🌓</button>
+    </header>
+
+    <main>
+        <div id="cone-container"></div>
+        <section id="hero" class="hero">
+            <div class="hero-content">
+                <h1 class="parallax" data-speed="0.1">Vanta Black Labs</h1>
+                <p class="parallax" data-speed="0.2">Innovation at the intersection of technology and imagination</p>
+            </div>
+        </section>
+
+        <div id="nebula-container" class="nebula-container"></div>
+
+        <section id="projects" class="projects hidden">
+            <h2>Our Projects</h2>
+            <div class="project-grid">
+                <div class="project-card" data-project="nexus">
+                    <h3>Ave</h3>
+                    <p>Mex-US Supply Chain</p>
+                </div>
+                <div class="project-card" data-project="stardrive">
+                    <h3>Emprendedores LatAm</h3>
+                    <p>LatAm Tech Newsletter and Community</p>
+                </div>
+                <div class="project-card" data-project="roboassist">
+                    <h3>WIP</h3>
+                    <p>.</p>
+                </div>
+                <div class="project-card" data-project="biosynth">
+                    <h3>WIP</h3>
+                    <p>.</p>
+                </div>
+                <div class="project-card" data-project="quantumleap">
+                    <h3>WIP</h3>
+                    <p>.</p>
+                </div>
+                <div class="project-card" data-project="ecofuel">
+                    <h3>WIP</h3>
+                    <p>.</p>
+                </div>
+            </div>
+        </section>
+
+        <div id="project-details" class="project-details">
+            <div class="project-details-content">
+                <button class="close-btn">&times;</button>
+                <h3 id="detail-title"></h3>
+                <p id="detail-description"></p>
+                <img id="detail-image" src="" alt="Project Image">
+                <a id="detail-link" class="detail-link" href="#" target="_blank" rel="noopener" style="display:none;">Visit Project</a>
+            </div>
+        </div>
+
+
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Vanta Black Labs. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
